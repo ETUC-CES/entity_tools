@@ -900,7 +900,9 @@ class EntityTools {
    * @return array|int
    */
   public function getViewModes($entity_type) {
-    $result = $this->entityQuery->get('entity_view_mode')
+    // Le service entity.query n'existe plus depuis Drupal 9.
+    $result = $this->entityTypeManager->getStorage('entity_view_mode')->getQuery()
+      ->accessCheck(FALSE)
       ->condition('targetEntityType', $entity_type)
       ->execute();
     return $result;

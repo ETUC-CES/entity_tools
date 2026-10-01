@@ -1,7 +1,7 @@
 name: Entity Tools
 type: module
 description: Facade for entities and fields.
-core_version_requirement: ^8 || ^9 || ^10
+core_version_requirement: ^8 || ^9 || ^10 || ^11
 package: Other
 dependencies:
   - drupal:block

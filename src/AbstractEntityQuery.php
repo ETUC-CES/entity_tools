@@ -77,6 +77,9 @@ abstract class AbstractEntityQuery implements EntityQueryInterface {
    * {@inheritdoc}
    */
   public function execute() {
+    // accessCheck() est obligatoire depuis Drupal 10.2. bypassEntityAccess
+    // vaut FALSE par défaut : contrôle d'accès actif, comme avant D10.
+    $this->coreEntityQuery->accessCheck(!$this->bypassEntityAccess);
     return $this->coreEntityQuery->execute();
   }
 
